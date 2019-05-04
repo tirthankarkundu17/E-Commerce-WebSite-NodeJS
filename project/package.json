@@ -1,0 +1,44 @@
+{
+  "name": "commerce",
+  "version": "1.0.0",
+  "description": "E-Commerce WebSite",
+  "main": "app.js",
+  "scripts": {
+    "test": "Fashion E-Commerce Web Site"
+  },
+  "keywords": [
+    "Fashion",
+    "Website",
+    "ECommerce",
+    "Dresses"
+  ],
+  "author": "Harish Pradeep",
+  "license": "ISC",
+  "dependencies": {
+    "alert-node": "^1.2.3",
+    "bcryptjs": "^2.4.3",
+    "body-parse": "^0.1.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "crypto": "^1.0.1",
+    "dialog": "^0.3.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.1",
+    "file-system": "^2.2.2",
+    "gridfs-stream": "^1.1.1",
+    "method-override": "^3.0.0",
+    "mongod": "^2.0.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.2",
+    "multer": "^1.4.1",
+    "multer-gridfs-storage": "^3.2.3",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "uuid": "^3.3.2"
+  }
+}

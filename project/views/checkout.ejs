@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>MILENZ : CheckOut</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/css/img/core-img/favicon.png">
+
+    <!-- Core Style CSS -->
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/css/css/core-style.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- ##### Header Area Start ##### -->
+
+          <header class="header_area">
+              <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+                  <!-- Classy Menu -->
+                  <nav class="classy-navbar" id="essenceNav">
+                      <!-- Logo -->
+                      <a class="nav-brand" href="/home"><img src="/css/img/core-img/Milenz2.png" alt=""></a>
+                      <!-- Navbar Toggler -->
+                      <div class="classy-navbar-toggler">
+                          <span class="navbarToggler"><span></span><span></span><span></span></span>
+                      </div>
+                      <!-- Menu -->
+                      <div class="classy-menu">
+                          <!-- close btn -->
+                          <div class="classycloseIcon">
+                              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                          </div>
+                          <!-- Nav Start -->
+                          <div class="classynav">
+                              <ul>
+                                  <li><a href="#">Shop</a>
+                                      <div class="megamenu">
+                                          <ul class="single-mega cn-col-4">
+                                              <li class="title"><a href="/womensDresses">Women's Collection</a></li>
+                                              <li><a href="/catagory/blouse">Blouses & Tunics</a></li>
+                                              <li><a href="/catagory/coat">Coats</a></li>
+                                              <li><a href="/catagory/dress">Dresses</a></li>
+                                              <li><a href="/catagory/jacket">Jackets</a></li>
+                                              <li><a href="/catagory/jeans">Jeans</a></li>
+                                            </ul>
+                                          <ul class="single-mega cn-col-4">
+                                              <li class="title">Men's Collection</li>
+                                              <li><a href="shop.html">T-Shirts</a></li>
+                                              <li><a href="shop.html">Polo</a></li>
+                                              <li><a href="shop.html">Shirts</a></li>
+                                              <li><a href="shop.html">Jackets</a></li>
+                                              <li><a href="shop.html">Trench</a></li>
+                                          </ul>
+                                          <ul class="single-mega cn-col-4">
+                                              <li class="title">Kid's Collection</li>
+                                              <li><a href="shop.html">Dresses</a></li>
+                                              <li><a href="shop.html">Shirts</a></li>
+                                              <li><a href="shop.html">T-shirts</a></li>
+                                              <li><a href="shop.html">Jackets</a></li>
+                                              <li><a href="shop.html">Trench</a></li>
+                                          </ul>
+                                          <div class="single-mega cn-col-4">
+                                              <img src="/css/img/bg-img/bg-6.jpg" alt="">
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li><a href="#">Contact</a></li>
+                              </ul>
+                          </div>
+                          <!-- Nav End -->
+                      </div>
+                  </nav>
+
+                  <!-- Header Meta Data -->
+                  <div class="header-meta d-flex clearfix justify-content-end">
+                    <!-- Material checked -->
+                      <!-- Search Area -->
+                      <div class="search-area">
+
+                      </div>
+                      <!-- Favourite Area -->
+                      <div class="favourite-area">
+                          <a href="#"><img src="/css/img/core-img/heart.svg" alt=""></a>
+                      </div>
+                      <!-- Cart Area -->
+                      <% if(typeof items.cart!=="undefined"){ %>
+                        <div class="cart-area">
+                            <a href="#" id="essenceCartBtn"><img src="/css/img/core-img/bag.svg" alt=""> <span id="noOfItems"><%= items.cart.length %></span></a>
+                        </div>
+                      <% } %>
+                  </div>
+
+              </div>
+          </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Right Side Cart Area ##### -->
+    <div class="cart-bg-overlay"></div>
+
+
+    <!-- ##### Right Side Cart End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img" style="background-image: url(/css/img/bg-img/breadcumb.jpg); margin-top: 90px;">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>Checkout</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Checkout Area Start ##### -->
+    <div class="checkout_area section-padding-80">
+        <div class="container">
+            <div class="row">
+
+
+
+                <div class="col-md-9">
+                    <div class="order-details-confirmation">
+
+                        <div class="cart-page-heading">
+                            <h5 style="font-family:Courier New">Your Order</h5>
+
+                        </div>
+
+                        <ul class="order-details-form mb-4">
+                          <table class="table table-hover" style="font-family:Courier New">
+                               <thead>
+                                  <tr>
+                                   <th scope="col" style="width:100px;"></th>
+                                   <th scope="col" style="width:200px;"></th>
+                                   <th scope="col">Item Price</th>
+                                   <th scope="col">Quantity</th>
+                                   <th scope="col">Price</th>
+                                  </tr>
+                               </thead>
+                            <tbody>
+                          <% if(typeof items.cart!=="undefined"){ %>
+                              <% items.cart.forEach(function(file) { %>
+                                  <tr>
+                                      <td>
+                                      <% if(file.items){ %>
+                                        <img src="/image/<%= file.items %>" class="cart-thumb" alt="" style="width:65px; height:90px;">
+                                      <% } else if(file.shoeitems) { %>
+                                        <img src="../<%= file.shoeitems %>" class="cart-thumb" alt="" style="width:65px; height:90px;">
+                                      <% } %>
+                                      </td>
+                                      <td><%= file.name %></td>
+                                      <td stlye="display: inline;" class="ids">LKR. <span id="price"><%= file.price %></span></td>
+                                      <td><select id="qunty" >
+                                        <option value="1" selected>1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                      </select> <button type="button" class="updatequa btn btn-success">Update</button></td>
+                                      <td>LKR. <span class="final_amount" id="final_amount"><%= file.price %></span></td>
+                                  </tr>
+                                  <% }) } else { %>
+                                    <tr>
+                                      <p>NO ITEMS PURCHESED YET</p>
+                                    </tr>
+                                  <% } %>
+                            </tbody>
+                        </table>
+                        <li style="font-family:Courier New; font-size: 18px;"><span>Shipping</span> <span style="color:green;">Free</span></li>
+                        <li style="font-family:Courier New; font-size: 18px;"><span>Total</span><span class="total_amount"></span></li>
+                        <div class="inner" style="padding-top:15px;"> <a href="/womensDresses" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></div>
+
+<script type="text/javascript">
+
+   $(".updatequa").click(function(){
+     var qua = $(this).closest("tr").find("#qunty").val();
+     //var id = $(this).parent().siblings('.ids').text();
+     var price = $(this).closest("tr").find("#price").text();
+     var amount = qua * parseInt(price);
+     $(this).closest("tr").find('#final_amount').text(amount);
+
+
+    let rupee = 0;
+     $(".final_amount").each(function() {
+         var value = $(this).text();
+         // add only if the value is number
+         if(!isNaN(value) && value.length != 0) {
+           rupee += parseFloat(value);
+         $(".total_amount").text("LKR. " + rupee);
+       }
+     });
+   });
+
+   window.onload = function(){
+     let rupee = 0;
+      $(".final_amount").each(function() {
+          var value = $(this).text();
+          // add only if the value is number
+          if(!isNaN(value) && value.length != 0) {
+            rupee += parseFloat(value);
+          $(".total_amount").text("LKR. " + rupee);
+        }
+      });
+
+   }
+
+</script>
+
+                        </ul>
+
+                        <div id="accordion" role="tablist" class="mb-4">
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-circle-o mr-3"></i>Paypal</a>
+                                    </h6>
+                                </div>
+
+                                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integ er bibendum sodales arcu id te mpus. Ut consectetur lacus.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-circle-o mr-3"></i>cash on delievery</a>
+                                    </h6>
+                                </div>
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quis in veritatis officia inventore, tempore provident dignissimos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingThree">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-circle-o mr-3"></i>credit card</a>
+                                    </h6>
+                                </div>
+                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quo sint repudiandae suscipit ab soluta delectus voluptate, vero vitae</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingFour">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"><i class="fa fa-circle-o mr-3"></i>direct bank transfer</a>
+                                    </h6>
+                                </div>
+                                <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est cum autem eveniet saepe fugit, impedit magni.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-info"><a href="#" style="color: #fff;">Place Order</a></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Checkout Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <% include parts/footer.ejs %>
+
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+</body>
+
+</html>

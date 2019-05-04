@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title> MILENZ | Fashion House</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/css/img/core-img/favicon.png">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/css/css/core-style.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+<% include parts/header.ejs %>
+    <!-- ##### Right Side Cart Area ##### -->
+
+<div class="cart-bg-overlay"></div>
+  <p id="city"><%= city %></p> <!-- City of Buyer -->
+
+<script type="text/javascript">
+  window.onload = function(){
+  var place = $('#city').text();
+   $(document).ready(weatherSettings(place));
+   function weatherSettings(place) {
+     var config =
+      {
+          url: 'http://api.openweathermap.org/data/2.5/forecast',
+          data: {
+
+    q:place,
+    units: 'metric',
+    appid: '6f6c411552c7c0732c3c9aa100550169'
+  }
+};
+//$.ajax(config).done(displayMelbourneData);
+$.getJSON(config, displayMelbourneData);
+function displayMelbourneData(callback) {
+  var celsius = callback.list[0].main.temp;
+
+  if(celsius<=5) // SNOW DAY
+  {
+    $(".nav-brand").find("img").attr("src","/css/img/core-img/Milenz4.png");
+    alert("Snow");
+  }
+  else if(celsius>5 && celsius<=20) // RAINY DAY
+  {
+      $(".nav-brand").find("img").attr("src","/css/img/core-img/Milenz4.png");
+    alert("Rainny Day");
+  }
+else if(celsius>25) // SUNNY DAY
+{
+    $(".nav-brand").find("img").attr("src","/css/img/core-img/Milenz3.png");
+var nav =   `<ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url(/css/img/bg-img/bg-12.jpg)">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4" style="margin-left:-700px; margin-bottom:0px;">I WAS MADE FOR <br> SUNNY DAYS</h2>
+            <p class="lead" style="margin-left:-700px; margin-bottom:350px;">FASHION HAS TO REFLECT WHO YOU ARE. <br> <button data-toggle="modal" data-target="#sunnyDay" id="sunnyItem" class="btn btn-primary btn-lg">SHOP NOW<button></p>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url(/css/img/bg-img/bg-10.jpg)">
+          <div class="carousel-caption d-none d-md-block">
+
+            <div id="del-countdown" style="margin-top:400px; margin-left: 50px;">
+            <h2 class="display-4" style="font-family: cursive; color: #8f573d;">COMING SOON</h2>
+                    <div id="clock"></div>
+                  <div id="units">
+                    <span>Days</span>
+                    <span>Hours</span>
+                    <span>Minutes</span>
+                    <span>Seconds</span>
+                  </div>
+                    <p class="lead">New Stylish Brands Onwards</p>
+            </div>
+
+<style>
+  #del-countdown{
+  width: 850px;
+  margin: 15% auto;
+  }
+
+  #clock span{
+  float: left;
+  text-align: center;
+  font-size: 84px;
+  margin: 0 2.5%;
+  color: #fff;
+  padding: 20px;
+  width: 20%;
+  border-radius: 20px;
+  box-sizing: border-box;
+ }
+
+ #clock span:nth-child(1){
+  background: #fa5559;
+ }
+ #clock span:nth-child(2){
+  background: #26c2b9;
+ }
+ #clock span:nth-child(3){
+  background: #f6bc58;
+ }
+ #clock span:nth-child(4){
+  background: #2dcb74;
+ }
+
+ #clock:after{
+  content: "";
+  display: block;
+  clear: both;
+ }
+
+ #units span{
+  float: left;
+  width: 25%;
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+  font-family: tahoma;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px rgba(10,10,10,0.7);
+ }
+
+ span.turn{
+  animation: turn 0.7s ease forwards;
+ }
+
+ @keyframes turn{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotateX(360deg);
+  }
+ }
+</style>
+
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+</a>`
+    $('#carouselExampleIndicators').append(nav); // Add Images to Navigation Slider
+
+    $.ajax({
+      method:'POST',
+      url:'/weather',
+      cache:false,
+      data:{
+        weather: 'Sunny',
+      },
+      success:function(items){
+        items.forEach(function(item){
+
+        /*  v = '/image/'+item.filename;
+          image_temp = new Image();
+          image_temp.src = v;
+          image_temp.onload = function(){
+     $('#owl-sunny').owlCarousel().trigger('add.owl.carousel',
+     [jQuery('<div class="owl-item"><a href="/'+ item.filename +'"><img src="'+ v +'"></a><div class="product-description"><span>' + item.metadata.brand + '</span><a href=""><h6>'+ item.metadata.name + '</h6></a><p class="product-price">LKR. ' + item.metadata.price + '</p></div></div>')]).trigger('refresh.owl.carousel');
+
+   } */
+  var sunnyitems = `<div class="col-12 col-sm-6 col-lg-4" id="single_product" >
+       <div class="single-product-wrapper">
+           <div class="product-img">
+           <a href="/${item.filename}">
+                <img  src="image/${item.filename}" alt="">
+                </a>
+           </div>
+            <div class="product-description">
+            <span>${item.metadata.brand}</span>
+            <a href="/${item.filename}">
+                <h6>${item.metadata.name}</h6>
+                <p class="product-price">LKR. ${item.metadata.price} </p>
+            </a>
+            </div>
+       </div>
+   </div>`
+   $('#img-list').append(sunnyitems);
+
+
+        });
+
+      },
+      error:function(){
+      }
+    });
+}
+  else{  // NORMAL DAY
+      $(".nav-brand").find("img").attr("src","/css/img/core-img/Milenz2.png");
+      alert("Normal Day");
+var nav = `<div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url(/css/img/bg-img/bg-10.jpg)">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4">First Slide</h2>
+            <p class="lead">This is a description for the first slide.</p>
+          </div>
+</div>`
+
+        $('#carouselExampleIndicators').append(nav);
+
+    }
+   }
+  }
+}
+
+
+// Countdown Start
+function updateTimer(deadline){
+var time = deadline - new Date();
+return{
+'days':Math.floor(time/(1000*60*60*24)),
+'hours': Math.floor( (time/(1000*60*60))%24 ),
+'minutes': Math.floor((time/1000/60)%60),
+'seconds': Math.floor((time/1000)%60),
+'total': time
+};
+}
+
+ function animationCLock(span){
+ span.className = "turn";
+ setTimeout(function(){
+  span.className = "";
+ },700);
+ }
+
+
+
+ function startTimer(id, deadline)
+ {
+ var timeInterval = setInterval(function(){
+ var clock = document.getElementById(id);
+ var timer = updateTimer(deadline);
+ clock.innerHTML = '<span>' + timer.days + '</span>'
+                + '<span>' + timer.hours + '</span>'
+                + '<span>' + timer.minutes + '</span>'
+                + '<span>' + timer.seconds + '</span>'
+
+    // animations
+    var spans = clock.getElementsByTagName("span");
+    animationCLock(spans[3]);
+    if(timer.seconds == 59) animationCLock(spans[2]);
+    if(timer.minutes == 59 && timer.seconds == 59 && timer.seconds == 59) animationCLock(spans[0]);
+
+
+   // check for end of timer
+   if(timer.total <1){
+       clearInterval(timeInterval);
+       //clock.innerHTML = '<span>0</span><span>0</span><span>0</span><span>0</span>';
+       clock.style.display = "none";
+   }
+  },1000);
+ }
+
+  var deadline = new Date('2019-4-1');
+  startTimer("clock", deadline);
+
+  // Count down End
+
+</script>
+
+<div class="right-side-cart-area">
+
+  <% if(typeof items.cart!=="undefined"){ %>
+  <div class="cart-button">
+      <a href="#" id="rightSideCart"><img src="/css/img/core-img/bag.svg" alt=""> <span id="InsidenoOfItems"><%= items.cart.length %></span></a>
+  </div>
+<% } %>
+
+        <div class="cart-content d-flex">
+
+            <!-- Cart List Area -->
+            <div class="cart-list">
+              <!-- Single Cart Item -->
+              <div class="single-cart-item" style="height:230px;">
+                <% if(typeof items.cart!=="undefined"){ %>
+                <% items.cart.forEach(function(file) { %>
+                  <a href="#" id="displayImage" class="product-image">
+                    <% if(file.items){ %>
+                   <img src="/image/<%= file.items %>" class="cart-thumb" alt="">
+                    <% } else if(file.shoeitems) { %>
+                      <img src="../<%= file.shoeitems %>" class="cart-thumb" alt="">
+                    <% } %>
+                   <div class="cart-item-desc">
+                     <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                         <span class="badge"><%= file.brand %></span>
+                             <h6><%= file.name %></h6>
+                             <p class="color"><%= file.color %></p>
+                             <p class="color">Size: <%= file.size %></p>
+                             <p class="price">LKR. <%= file.price %></p>
+                     </div>
+                   </a>
+                <% }); } %>
+              </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-amount-summary">
+              <div class="card-header .bg-info">
+                   <h4 class="card-title" style="font-family: Monospace;"> <i class="fa fa-shopping-bag" aria-hidden="true"></i> My Bag </h4>
+               </div>
+            <div class="card-body ">
+                 <% if (typeof items.cart !== "undefined") {
+                              var amount = 0;  %>
+                             <% items.cart.forEach(function (file) {
+                              amount += parseInt(file.price); }); %>
+             <ul class="summary-table" id="summary-table">
+                 <li><span>subtotal:</span> <span>LKR. <%= amount %></span></li>
+                 <li><span>delivery:</span> <span style="color:green">Free</span></li>
+                 <!-- <li><span>discount:</span> <span></span></li> -->
+                 <li><span>total:</span> <span>LKR. <%= amount %></span></li>
+             </ul>
+                <%  } %>
+
+                  </div>
+                  <div class="card-footer">
+                    <div id="outer">
+
+                     <div class="inner"> <a href="/products/checkout" class="btn essence-btn">check out</a> </div><br><br>
+                     <div class="inner"> <a href="/womensDresses" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></div>
+
+                   </div>
+
+            <style media="screen">
+            #outer
+            {
+            width:100%;
+            text-align: center;
+            }
+            .inner
+            {
+            display: inline-block;
+            }
+            </style>
+
+                  </div>
+            </div>
+        </div>
+</div>
+    <!-- ##### Right Side Cart End ##### -->
+<div class="" style="width:100% height:20%; margin-top: 60px; background-color: #d7dae0; text-align: center; font-family: tahoma;"><span>FREE DELIVERY WORLDWIDE</span></div>
+
+<!-- ######################################## Welcome Area : Image Slider  ######################################################## -->
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"></div>
+          <style media="screen">
+      .carousel-item {
+      height: 100vh;
+      min-height: 250px;
+      background: no-repeat center center scroll;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      }
+</style>
+
+<!-- Sunny Day Item - Modal -->
+<div class="modal fade" id="sunnyDay" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="" style="background: url('/css/img/core-img/summer-header.png'); height:180px;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <div id="owl-sunny"></div> -->
+
+          <div class="row" id="img-list">
+
+          </div>
+<style media="screen">
+.modal-body {
+    max-height: calc(80vh - 210px);
+    overflow-y: auto;
+}
+/* Hover - SHadow Effect */
+div#single_product:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+</style>
+
+      </div>
+
+      <div class="modal-footer" style="background: url('/css/img/core-img/summer-footer.png'); height:180px;">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End -->
+
+<!-- ############################################################## Welcome Area End ########################################## -->
+
+
+
+    <!-- ##### Top Catagory Area Start ##### -->
+    <div class="top_catagory_area section-padding-80 clearfix">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Catagory -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url('https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F887294%252Fcc7a8372-57c9-40e9-8f03-353d4d627153.jpeg%252F950x534__filters%253Aquality%252890%2529.jpeg?signature=xs8lVd03NleeenB0QtSqW0fttaI=&source=https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com');">
+                        <div class="catagory-content">
+                            <a href="/womensDresses">Dresses</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Catagory -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url('https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');">
+                        <div class="catagory-content">
+                            <a href="/shoes">Shoes</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ##### Top Catagory Area End ##### -->
+
+    <!-- ##### CTA Area Start ##### -->
+    <div class="cta-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-content bg-img background-overlay" style="background-image: url(/css/img/bg-img/bg-5.jpg);">
+                        <div class="h-100 d-flex align-items-center justify-content-end">
+                            <div class="cta--text">
+                                <h6>-60%</h6>
+                                <h2>Global Sale</h2>
+                                <a href="#" class="btn essence-btn">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### CTA Area End ##### -->
+
+    <!-- ##### New Arrivals Area Start ##### -->
+    <section class="new_arrivals_area section-padding-80 clearfix" style="background-color: #EEE2E9;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                      <h3 style="text-align:center;"><span style="color:#2E4DB5; font-style:'tahoma';">MOST POPULAR </span> <span style="font-family:arial; font-weight: 400;
+                        src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');">PRODUCTS</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="popular-products-slides owl-carousel">
+                        <!-- Single Product -->
+                    <% if(typeof popular !="undefined"){
+                        popular.forEach(function(product){ %>
+                        <div class="single-product-wrapper" style="background-color: #EEE2E9;">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                              <a href="/<%= product.filename %>">
+                                <img src="/image/<%=product.filename %>" alt=""></a>
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <span><%= product.metadata.brand %></span>
+                                <a href="single-product-details.html">
+                                    <h6><%= product.metadata.name %></h6>
+                                </a>
+                                <p class="product-price">LKR. <%= product.metadata.price %></p>
+                            </div>
+                        </div>
+                        <% }); } %>
+<!-- Animation Style For Popular Products -->
+<style media="screen">
+  .single-product-wrapper:hover{
+    -moz-box-shadow: 0 0 12px #ccc;
+		-webkit-box-shadow: 0 0 12px #ccc;
+		box-shadow: 0 0 12px #ccc;
+  }
+
+  .single-product-wrapper img:hover{
+    filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+    -ms-transform:scale(1.2);
+  -webkit-transform:scale(1.2);
+  transform:scale(1.2);
+
+
+  }
+</style>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### New Arrivals Area End ##### -->
+
+    <!-- ##### Brands Area Start ##### -->
+    <div class="brands-area d-flex align-items-center justify-content-between">
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="/css/img/core-img/brand1.png" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="/css/img/core-img/brand2.png" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="/css/img/core-img/brand3.png" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="/css/img/core-img/brand4.png" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="/css/img/core-img/brand5.png" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="/css/img/core-img/brand6.png" alt="">
+        </div>
+    </div>
+    <!-- ##### Brands Area End ##### -->
+
+  <% include parts/footer.ejs %>
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="/css/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/css/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/css/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/css/js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="/css/js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="/css/js/active.js"></script>
+
+
+</body>
+
+</html>

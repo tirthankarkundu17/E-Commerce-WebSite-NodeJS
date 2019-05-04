@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- Title  -->
+    <title>Milenz - Single Product </title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/css/img/core-img/favicon.png">
+
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/css/css/core-style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+
+// Related Products
+$(document).ready(function() {
+
+  $("#owl-demo").owlCarousel({
+
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+      items : 4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+
+  });
+
+});
+
+
+</script>
+
+</head>
+<body>
+
+
+  <script src="../css/js/jquery/jquery-2.2.4.min.js"></script>
+
+
+      <header class="header_area">
+          <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+              <!-- Classy Menu -->
+              <nav class="classy-navbar" id="essenceNav">
+                  <!-- Logo -->
+                  <a class="nav-brand" href="/home"><img src="/css/img/core-img/Milenz2.png" alt=""></a>
+                  <!-- Navbar Toggler -->
+                  <div class="classy-navbar-toggler">
+                      <span class="navbarToggler"><span></span><span></span><span></span></span>
+                  </div>
+                  <!-- Menu -->
+                  <div class="classy-menu">
+                      <!-- close btn -->
+                      <div class="classycloseIcon">
+                          <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                      </div>
+                      <!-- Nav Start -->
+                      <div class="classynav">
+                          <ul>
+                              <li><a href="#">Shop</a>
+                                  <div class="megamenu">
+                                      <ul class="single-mega cn-col-4">
+                                          <li class="title"><a href="/womensDresses">Women's Collection</a></li>
+                                          <li><a href="/catagory/blouse">Blouses & Tunics</a></li>
+                                          <li><a href="/catagory/coat">Coats</a></li>
+                                          <li><a href="/catagory/dress">Dresses</a></li>
+                                          <li><a href="/catagory/jacket">Jackets</a></li>
+                                          <li><a href="/catagory/jeans">Jeans</a></li>
+                                        </ul>
+                                      <ul class="single-mega cn-col-4">
+                                          <li class="title">Men's Collection</li>
+                                          <li><a href="shop.html">T-Shirts</a></li>
+                                          <li><a href="shop.html">Polo</a></li>
+                                          <li><a href="shop.html">Shirts</a></li>
+                                          <li><a href="shop.html">Jackets</a></li>
+                                          <li><a href="shop.html">Trench</a></li>
+                                      </ul>
+                                      <ul class="single-mega cn-col-4">
+                                          <li class="title">Kid's Collection</li>
+                                          <li><a href="shop.html">Dresses</a></li>
+                                          <li><a href="shop.html">Shirts</a></li>
+                                          <li><a href="shop.html">T-shirts</a></li>
+                                          <li><a href="shop.html">Jackets</a></li>
+                                          <li><a href="shop.html">Trench</a></li>
+                                      </ul>
+                                      <div class="single-mega cn-col-4">
+                                          <img src="/css/img/bg-img/bg-6.jpg" alt="">
+                                      </div>
+                                  </div>
+                              </li>
+                              <li><a href="contact.html">Contact</a></li>
+                          </ul>
+                      </div>
+                      <!-- Nav End -->
+                  </div>
+              </nav>
+
+              <!-- Header Meta Data -->
+              <div class="header-meta d-flex clearfix justify-content-end">
+                <!-- Material checked -->
+                <% if(typeof isSearch !== "undefined") { %>
+                <% if(isSearch==1){ %>
+                  <!-- Search Area -->
+                  <div class="search-area">
+                      <form action="#" method="post">
+                          <input type="search" id="womenItem" placeholder="Search for items, brands">
+                          <button type="button" onclick="womenSearch()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                          <!-- Rounded switch -->
+                      </form>
+                  </div>
+              <%  } else if(isSearch==0){ %>
+                  <!-- Search Area -->
+                  <div class="search-area">
+
+                  </div>
+             <%  } }%>
+
+
+                  <!-- Favourite Area -->
+                  <div class="favourite-area">
+                      <a href="#"><img src="/css/img/core-img/heart.svg" alt=""></a>
+                  </div>
+
+
+
+      <!--
+                  <div class="dropdown dropdown-toplinks">
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown"><span class="myAccountIcon icon-user">Log In | Sign Up</span></button>
+                    <div class="dropdown-menu">
+                      <ul>
+                        <li>
+                          <a href="https://www.thechennaisilks.com/customer/account/">My Account</a>
+                        </li>
+                      <li>
+                        <a href="https://www.thechennaisilks.com/customer/account/create/">Create an Account</a>
+                      </li>
+                      <li class="authorization-link" data-label="or">
+                      <a href="https://www.thechennaisilks.com/customer/account/login/referer/aHR0cHM6Ly93d3cudGhlY2hlbm5haXNpbGtzLmNvbS8%2C/">
+                          Sign In</a>
+                      </li>
+                      <ul>
+      </div> -->
+
+                  <!-- Cart Area -->
+                  <% if(typeof items.cart!=="undefined"){ %>
+                    <div class="cart-area">
+                        <a href="#" id="essenceCartBtn"><img src="/css/img/core-img/bag.svg" alt=""> <span id="noOfItems"><%= items.cart.length %></span></a>
+                    </div>
+                  <% } %>
+              </div>
+
+          </div>
+      </header>
+
+
+
+     <!-- ##### Right Side Cart Area ##### -->
+     <div class="cart-bg-overlay"></div>
+     <div class="right-side-cart-area">
+
+       <% if(typeof items.cart!=="undefined"){ %>
+       <div class="cart-button">
+           <a href="#" id="rightSideCart"><img src="/css/img/core-img/bag.svg" alt=""> <span id="InsidenoOfItems"><%= items.cart.length %></span></a>
+       </div>
+     <% } %>
+
+         <div class="cart-content d-flex">
+
+             <!-- Cart List Area -->
+             <div class="cart-list">
+                 <!-- Single Cart Item -->
+                 <div class="single-cart-item" style="height:230px;">
+                   <% if(typeof items.cart!=="undefined"){ %>
+                   <% items.cart.forEach(function(file) { %>
+                     <a href="#" id="displayImage" class="product-image">
+                       <% if(file.items){ %>
+                      <img src="/image/<%= file.items %>" class="cart-thumb" alt="">
+                       <% } else if(file.shoeitems) { %>
+                         <img src="../<%= file.shoeitems %>" class="cart-thumb" alt="">
+                       <% } %>
+                      <div class="cart-item-desc">
+                        <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                            <span class="badge"><%= file.brand %></span>
+                                <h6><%= file.name %></h6>
+                                <p class="color"><%= file.color %></p>
+                                <p class="price">LKR. <%= file.price %></p>
+                        </div>
+                      </a>
+                   <% }); } %>
+                 </div>
+
+             </div>
+
+             <!-- Cart Summary -->
+
+
+           <div class="cart-amount-summary">
+             <div class="card-header .bg-info">
+                  <h4 class="card-title" style="font-family: Monospace;"> <i class="fa fa-shopping-bag" aria-hidden="true"></i> My Bag </h4>
+              </div>
+         <div class="card-body ">
+                <% if (typeof items.cart !== "undefined") {
+                             var amount = 0;  %>
+                            <% items.cart.forEach(function (file) {
+                             amount += parseInt(file.price); }); %>
+            <ul class="summary-table" id="summary-table">
+                <li><span>subtotal:</span> <span>LKR. <%= amount %></span></li>
+                <li><span>delivery:</span> <span style="color:green">Free</span></li>
+                <!-- <li><span>discount:</span> <span></span></li> -->
+                <li><span>total:</span> <span>LKR. <%= amount %></span></li>
+            </ul>
+               <%  } %>
+
+                 </div>
+                 <div class="card-footer">
+                   <div id="outer">
+
+                    <div class="inner"> <a href="/products/checkout" class="btn essence-btn">check out</a> </div><br><br>
+                    <div class="inner"> <a href="/shoes" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></div>
+
+                  </div>
+
+<style media="screen">
+#outer
+{
+  width:100%;
+  text-align: center;
+}
+.inner
+{
+  display: inline-block;
+}
+                  </style>
+
+                 </div>
+               </div>
+
+
+         </div>
+     </div>
+<!-- End : Right Side Cart Area ##### -->
+
+<% if(typeof result!=="undefined") { %>
+    <!-- ##### Single Product Details Area Start ##### -->
+    <div class="card">
+    <section class="single_product_details_area d-flex align-items-center">
+        <!-- Single Product Thumb -->
+        <div class="single_product_thumb clearfix">
+                <input type="text" name="" value="<%= result.refID %>" hidden>
+                <img id="myImg" src="../<%=result.image %>" alt="" style="height:700px;">
+
+        </div>
+
+
+        <!-- Single Product Description -->
+        <div class="single_product_desc clearfix">
+            <span><%= result.brand %></span>
+            <a href="cart.html">
+                <h2 style="font-family:Garamond"><%= result.name %></h2>
+
+            </a>
+            <% if(result.dis > 0) {
+                const dis = result.dis;
+                const price = result.price;
+                const dis_value = dis * (price /100);
+                const last_price = price-dis_value; %>
+            <p class="product-price" id="final_price"><span class="old-price">LKR. <%= price %></span> LKR.<%= last_price %></p>
+            <span><button class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Delivery and returns info</button></span>
+          <% } else { %>
+              <p class="product-price"> LKR. <%= file.price %> </p>
+              <span><button class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Delivery and returns info</button></span>
+          <% } %>
+
+
+
+
+            <p class="product-desc" style="font-size:12px">Availability:<span style="color:green">Stock</span></p>
+            <p class="product-desc"><%= result.info %></p>
+            <div class="grid-row colour-section">
+            <label class="disabled" style="display:inline" nowrap><span style="color: black; ">COLOUR : </span><%= result.color %></label> <br>
+
+
+            <!-- Form -->
+            <form class="cart-form clearfix" method="post">
+                <!-- Select Box -->
+
+                <span  id="info_size" style="color: green; font-size: 10px; margin-bottom: -30px; padding-top: 20px;"></span>
+                <div class="select-box d-flex mt-50 mb-30">
+                    <select name="select" id="productSize" class="mr-5">
+                       <option value="select" selected >Select Size</option>
+                        <option value="XL">Size: XL</option>
+                        <option value="X">Size: X</option>
+                        <option value="M">Size: M</option>
+                        <option value="S">Size: S</option>
+                    </select>
+
+                </div>
+                <!-- Cart & Favourite Box -->
+                <div class="cart-fav-box d-flex align-items-center">
+                    <!-- Cart -->
+                    <button type="button" class="btn essence-btn js-btn-add-to-cart" style="background-color: green;">Add to Cart</button>
+
+                </div>
+            </form>
+
+        </div>
+    </section>
+  </div> <!-- End Card -->
+
+    <!-- ##### Single Product Details Area End ##### -->
+
+    <% } %>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.js-btn-add-to-cart').click(function(){
+
+      const size = $('#productSize').val();
+      if(size=="select"){
+        alert("Select Size of Item ");
+      } else {
+
+        $(this).prop("disabled",true);
+        $(this).html('Added');
+          var clickedImageSrc = $(this).closest(".card").find("input").attr("value");
+        //  var imgID = clickedImageSrc.replace('image/','');
+          $.ajax({
+            method:'POST',
+            url:'/shoecart',
+            cache:false,
+            data:{
+              imgID: clickedImageSrc,
+              size:size
+            },
+            success:function(result){
+              $('.cart-list').html('');
+              $('#noOfItems').html(result.length);
+              $('#InsidenoOfItems').html(result.length);
+                 result.forEach(function(file){
+                 var img = `<div class="single-cart-item">
+                             <a href="/shoes/${file.refID}" id="displayImage" class="product-image">
+                              <img src="../${file.shoeitems}" class="cart-thumb" alt="">
+                            <div class="cart-item-desc">
+                                <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                                    <span class="badge">${file.brand}</span>
+                                        <h6>${file.name}</h6>
+                                        <p class="color">${file.color}</p>
+                                        <p class="color">Size: ${file.size}</p>
+                                        <p class="price">LKR ${file.price}</p>
+                                </div>
+                                   </a>
+                                   </div>`
+
+                    $('.cart-list').append(img);
+                    $('div.cart-bg-overlay').toggleClass('cart-bg-overlay-on');
+                    $('div.right-side-cart-area').toggleClass('cart-on');
+
+    //alert(file.items);
+               });
+            },
+            error:function(){
+
+            }
+
+
+        });
+
+      } // if condition
+      });
+    });
+      </script>
+<!-- Related Brand Slider -->
+<br><br><br>
+<h3 style="text-align:center;"><span style="color:#2E4DB5; font-style:'tahoma';">RELATED</span> <span style="font-family:arial; font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');">PRODUCTS</span></h3>
+  <div class="card" style="width:1000px; height:430px; float: none; margin: 0 auto; margin-bottom: 10px; ">
+  <div class="card-body">
+  <div id="owl-demo">
+    <% if(relatedshoeProduct) {  %>
+  <% relatedshoeProduct.forEach(function(files) {  %>
+     <div class="item">
+          <a href="/shoes/<%=files.refID %>"><img src="../<%= files.image %>" alt=""></a>
+          <div class="product-description" style="text-align:center;">
+                <span><%= files.brand %></span>
+                <a href="single-product-details.html">
+                    <h6><%= files.name %></h6>
+                </a>
+                <% if(files.dis > 0) {
+                    const dis = files.dis;
+                    var price = files.price;
+                    const dis_value = dis * (price /100);
+                    const last_price = price-dis_value; %>
+                    <p class="product-price">LKR.   <%= last_price %></p>
+                <% } else { %>
+                     <p class="product-price">LKR.  <%= files.price %> </p>
+                <% } %>
+          </div>
+     </div>
+      <% }) } %>
+  </div>
+</div>
+</div>
+
+<!-- Slider End -->
+
+<!-- Modal For Delivery Details-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-family: Garamond; text-align: center; ">DELIVERY OPTIONS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div id="modal-delivery-and-returns-content"><div class="delivery-and-returns-content">
+            <div class="deliver-to">
+                <!-- ko if : !isMobile-->
+                <div class="current-country">
+                    <span class="country-label" data-bind="text: content.destination.label">Deliver to</span>
+                    <span class="country-name dr-flag lk">any Area in Sri Lanka</span>
+                </div
+            </div>
+            <div class="delivery-options">
+
+
+                <hr>
+
+                <table class="table">
+                    <thead>
+                        <tr class="delivery-and-returns-group-name">
+                            <th scope="colgroup" colspan="3">
+                                <h2 data-bind="text: name">Delivery</h2>
+                            </th>
+                        </tr>
+                        <!-- ko if:$index()===0 -->
+                        <tr class="delivery-and-returns-headings">
+                            <th scope="col" data-bind="text: $parent.content.deliveryGroupHeaders.type">Type</th>
+                            <th scope="col" data-bind="text: $parent.content.deliveryGroupHeaders.when">When?</th>
+                            <th scope="col" data-bind="text: $parent.content.deliveryGroupHeaders.howMuch">How much?</th>
+                        </tr>
+                        <!-- /ko -->
+                    </thead>
+                    <tbody data-bind="foreach: options">
+                        <tr>
+                            <th scope="row" class="delivery-type" data-bind="html: type">Standard Delivery</th>
+                            <td class="delivery-when" data-bind="html: when">Delivered on or before Thursday, 14 April 2019</td>
+                            <td class="delivery-how-much" data-bind="with: $parents[1].formatHowMuch(howMuch)">
+                                <span class="delivery-cost" data-bind="html: price">Rs. 450</span>
+                                <span class="delivery-free-condition" data-bind="html: freeCondition"><strong style="color:green;">Free</strong>– spend over Rs. 5400</span>
+                                <span class="delivery-premier-qualifier" data-bind="html: premierQualifier"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="delivery-type" data-bind="html: type">Express Delivery</th>
+                            <td class="delivery-when" data-bind="html: when">Delivered on or before Wednesday, 27 May 2019</td>
+                            <td class="delivery-how-much" data-bind="with: $parents[1].formatHowMuch(howMuch)">
+                                <span class="delivery-cost" data-bind="html: price">Rs. 2540</span>
+                                <span class="delivery-free-condition" data-bind="html: freeCondition"></span>
+                                <span class="delivery-premier-qualifier" data-bind="html: premierQualifier"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <span class="delivery-terms" data-bind="text: content.terms">*Postcode exclusions apply</span>
+            </div>
+            <div class="premier-delivery">
+                <div class="premier-image">
+                    <img  src="/css/img/core-img/milenz.png" style="width:200px; height:80px;">
+                </div>
+                <div class="premier-text">
+                    <p>MILENZ Premier Delivery SriLanka</p>
+                    <span data-bind="text: content.premier.text">Only Rs.3500 for 12 months</span>
+                </div>
+            </div>
+
+        </div></div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Finish -->
+
+
+
+<!-- End -->
+
+
+<br><br><br>
+
+    <!-- ##### Footer Area Start ##### -->
+    <% include parts/footer.ejs %>
+
+    <!-- ##### Footer Area End ##### -->
+    <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="/css/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/css/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/css/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/css/js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="/css/js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="/css/js/active.js"></script>
+
+
+</body>
+
+</html>

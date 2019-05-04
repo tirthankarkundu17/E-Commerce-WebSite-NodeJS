@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Login</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/css/img/core-img/favicon.png">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/css/css/core-style.css">
+    <link rel="stylesheet" href="/css/css/loginstyle.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+
+
+</head>
+<body>
+  <!-- Include Header -->
+    <% include parts/outheader.ejs %>
+
+<!-- Display flash message for successful registration -->
+  <div class="container">
+
+<div style=" width:450px; margin:auto; width: 50%; padding: 10px;">
+    <% if (success_msg.length>0) { %>
+        <p class="alert alert-success"> <%= success_msg  %></p>
+    <% }
+else if (error_msg.length>0) { %>
+      <p class="alert alert-danger"><%= error_msg  %></p>
+    <%  }
+    else if (error.length>0) { %>
+      <p class="alert alert-danger"><%= error  %></p>
+    <% } %>
+
+</div>
+
+<!-- End -->
+
+    <div class="row" id="pwd-container">
+      <div class="col-md-4"></div>
+
+      <div class="col-md-4">
+        <section class="login-form">
+          <form method="post" action="/login" role="login">
+            <img src="/css/img/core-img/Milenz2.png" class="img-responsive" alt="" />
+            <input type="text" name="username" placeholder="Username" required class="form-control input-lg" />
+            <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="" />
+            <div class="pwstrength_viewport_progress"></div>
+            <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
+            <div>
+              <a href="/userregister">Create account</a>
+            </div>
+          </form>
+
+
+        </section>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bar" style="margin-top:200px;">
+    <!-- Include Footer -->
+    <% include parts/outfooter.ejs %>
+  </div>
+
+</body>
+</html>

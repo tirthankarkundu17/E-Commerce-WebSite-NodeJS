@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Women Dress</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="/css/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="/css/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="/css/assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MILENZ</a>
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				  <li class="text-center">
+                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+
+
+                              <li>
+                                  <a  href="/admin/home"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                              </li>
+                               <li>
+                                  <a href="#" class="active-menu"><i class="fa fa-female fa-3x"></i> Women - Dress <span class="fa arrow"></span></a>
+                              </li>
+
+                              <!-- Men -->
+                              <li>
+                                 <a href="/admin/shoe"><i class="fa fa-male fa-3x"></i> Women - Shoe <span class="fa arrow"></span></a>
+
+                             </li>
+
+                             <!-- Child -->
+                             <li>
+                                <a href="#"><i class="fa fa-smile-o fa-3x"></i> Kids <span class="fa arrow"></span></a>
+
+                            </li>
+          </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Women - Dresses Registration</h2>
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+
+          <!-- Start -->
+          <div class="row">
+           <div class="col-md-12">
+             <!-- Messages Display -->
+             <div>
+               <% if (success_msg.length>0) { %>
+                   <p class="alert alert-success"> <%= success_msg  %></p>
+               <% }
+           else if (error_msg.length>0) { %>
+                 <p class="alert alert-danger"><%= error_msg  %></p>
+               <%  }
+               else if (error.length>0) { %>
+                 <p class="alert alert-danger"><%= error  %></p>
+               <% } %>
+             </div>
+            <!-- Form Elements -->
+            <div class="panel panel-default">
+            <% if(typeof file !== "undefined") { %>
+              <div class="panel-heading">
+                 Update Dresses
+               </div>
+                  <div class="panel-body">
+
+                        <form  action="/admin/update" method="post" role="form" enctype="multipart/form-data">
+                          <div class="form-group">
+                              <label>Brand</label>
+                              <input class="form-control" name="update_brand" value="<%= file.metadata.brand %>" />
+                           </div>
+
+                           <div class="form-group">
+                              <label>Category</label>
+                               <select class="form-control" name="cat">
+                                 <option value="<%= file.metadata.cat %>"><%= file.metadata.cat %></option>
+                                 <option value="Blouse">Blouses & Tunics</option>
+                                 <option value="Coats">Coats</option>
+                                 <option value="Dress">Dresses</option>
+                                 <option value="Jacket">Jackets</option>
+                                 <option value="Jeans">Jeans</option>
+                               </select>
+                           </div>
+                           <div class="form-group">
+                               <label>Name of Dress</label>
+                               <input class="form-control" placeholder="Name of Dress" name="name" value="<%= file.metadata.name %>" />
+                           </div>
+                           <div class="form-group">
+                              <label>Color</label>
+                               <select class="form-control" name="color">
+                                 <option value="<%= file.metadata.color %>"><%= file.metadata.color %></option>
+                                 <option value="Black">Black</option>
+                                 <option value="White">White</option>
+                                 <option value="Blue">Blue</option>
+                                 <option value="Brown">Brown</option>
+                                 <option value="Red">Red</option>
+                                 <option value="Grey">Grey</option>
+                                 <option value="Green">Green</option>
+                                 <option value="Yellow">Yellow</option>
+                               </select>
+                           </div>
+                           <div class="form-group">
+                               <label>Price</label>
+                               <input class="form-control" placeholder="Price" name="price" value="<%= file.metadata.price %>"/>
+                           </div>
+                           <div class="form-group">
+                               <label>Additional Info</label>
+                               <input class="form-control" placeholder="Info" name="info" value="<%= file.metadata.info %>"/>
+                           </div>
+                           <div class="form-group">
+                               <label>Discount</label>
+                               <input class="form-control" placeholder="Discount" name="discount" value="<%= file.metadata.dis %>"/>
+                           </div>
+
+                           <div class="form-group">
+                                <label>Image </label>
+                                <input type="file" name="pic"/>
+                            </div>
+                            <div class="form-group">
+                              <input type="submit" name="button" value="Update" class="btn btn-success">
+                            </div>
+
+                        </form>
+                    <% } else { %>
+                      <div class="panel-heading">
+                         Registration Dresses
+                       </div>
+                          <div class="panel-body">
+                    <form  action="/admin/wdress" method="post" role="form" enctype="multipart/form-data">
+
+
+                      <div class="form-group">
+                          <label>Brand</label>
+                          <input class="form-control" placeholder="Brand" name="brand"/>
+                       </div>
+
+                       <div class="form-group">
+                          <label>Category</label>
+                           <select class="form-control" name="cat">
+                             <option value="Blouse">Blouses & Tunics</option>
+                             <option value="Coats">Coats</option>
+                             <option value="Dress">Dresses</option>
+                             <option value="Jacket">Jackets</option>
+                             <option value="Jeans">Jeans</option>
+                           </select>
+                       </div>
+                       <div class="form-group">
+                           <label>Name of Dress</label>
+                           <input class="form-control" placeholder="Name of Dress" name="name" />
+                       </div>
+                       <div class="form-group">
+                          <label>Color</label>
+                           <select class="form-control" name="color">
+                             <option value="Black">Black</option>
+                             <option value="White">White</option>
+                             <option value="Blue">Blue</option>
+                             <option value="Brown">Brown</option>
+                             <option value="Red">Red</option>
+                             <option value="Grey">Grey</option>
+                             <option value="Green">Green</option>
+                             <option value="Yellow">Yellow</option>
+                           </select>
+                       </div>
+                       <div class="form-group">
+                           <label>Price</label>
+                           <input class="form-control" placeholder="Price" name="price" />
+                       </div>
+                       <div class="form-group">
+                           <label>Additional Info</label>
+                           <input class="form-control" placeholder="Info" name="info"/>
+                       </div>
+                       <div class="form-group">
+                           <label>Discount</label>
+                           <input class="form-control" placeholder="Discount" name="discount"/>
+                       </div>
+                       <div class="form-group">
+                           <label>Weather</label>
+                           <input class="form-control" placeholder="Suitable for Weather" name="weather"/>
+                       </div>
+                       <div class="form-group">
+                            <label>Image </label>
+                            <input type="file" name="pic"/>
+                        </div>
+                        <div class="form-group">
+                          <input type="submit" name="button" value="Submit" class="btn btn-primary">
+                        </div>
+
+                    </form>
+                  <% } %>
+                  </div>
+                </div>
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">Womens Dress List </div>
+                  <div class="panel-body">
+                    <div class="table-responsive m-b-40">
+                                   <table  class="datatable table table-striped table-bordered" style="width:100%">
+                                       <thead>
+                                           <tr>
+                                             <th class="th-sm">#</th>
+                                             <th class="">Image</th>
+                                             <th class="th-sm">Brand</th>
+                                             <th class="th-sm">Category</th>
+                                             <th class="th-sm">Name</th>
+                                             <th class="th-sm">Price</th>
+                                             <th class="th-sm">Color</th>
+                                             <th class="th-sm">Added Date</th>
+                                             <th class="th-sm">Edit</th>
+                                             <th class="th-sm">Delete</th>
+                                           </tr>
+                                         </thead>
+                                         <tbody>
+                                           <% if(typeof files !== "undefined"){
+                                               var i = 1;
+                                               var d = new Date();
+                                               files.forEach(function(file) {
+                                                 %>
+                                           <tr>
+                                             <td><%= i++ %></td>
+                                             <td><img src="/image/<%= file.filename %>" style="width:60px; height:60px;"></td>
+                                             <td><%= file.metadata.brand %></td>
+                                             <td><%= file.metadata.cat %></td>
+                                             <td><%= file.metadata.name %></td>
+                                             <td><%= file.metadata.price %></td>
+                                             <td><%= file.metadata.color %></td>
+                                             <td><%= file.uploadDate %></td>
+                                             <td><a href="/admin/edit/<%= file.filename %>"><input type="button" class="btn btn-primary" value="Edit"></a></td>
+                                             <td><a href="/admin/delete/<%= file.filename %>"><input type="button" class="btn btn-danger" value="Delete"></a></td>
+                                           </tr>
+                                           <% })
+                                       } %>
+
+                                         </tbody>
+                                    </table>
+                      </div>
+                  </div>
+                </div>
+
+
+            </div>
+           </div>
+         <!-- End -->
+
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery-1.10.2.js"></script>
+
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+</body>
+</html>

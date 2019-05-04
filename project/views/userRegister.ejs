@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Register</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/css/img/core-img/favicon.png">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/css/css/core-style.css">
+    <link rel="stylesheet" href="/css/css/loginstyle.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+      <script src="/css/js/jquery/jquery-2.2.4.min.js"></script>
+
+</head>
+  <body>
+<!-- Include Header -->
+<% include parts/regoutheader.ejs %>
+
+
+<!-- Add flash messages for Registration -->
+<% if (typeof errors !== 'undefined')
+{%>
+
+  <!-- Set div bar to centre -->
+  <div style="
+  width:450px;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+} ">
+        <% errors.forEach(function(error){ %>
+        <p class="isa_error"><i class="fa fa-times-circle"></i><%= error.msg  %></p>
+    <% });%>
+   </div>
+<% }%>
+<!-- End -->
+
+    <div class="container">
+      <div class="row" id="pwd-container">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+          <section class="register-form">
+
+            <form method="POST" action="/register" >
+              <div class="form-group">
+
+              </div>
+              <div class="form-group">
+              <input type="text" name="name" placeholder="Name"  class="form-control input-lg" />
+              </div>
+              <div class="form-group">
+              <input type="text" name="username" placeholder="Username"  class="form-control input-lg" />
+              </div>
+              <div class="form-group">
+              <input type="text" name="email" placeholder="Email"  class="form-control input-lg" />
+              </div>
+              <div class="form-group">
+              <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password"  />
+              </div>
+              <div class="form-group">
+              <input type="password" name="password2" class="form-control input-lg" id="password2" placeholder="Confirm Password"  />
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="Country" id="Country" >
+                  <option value="" selected disabled>Select Country</option>
+                  <option value="Srilanka">Sri Lanka</option>
+                  <option value="India">India</option>
+                  <option value="Australia">Australia</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="US">United States</option>
+                </select>
+              </div>
+              <div class="form-group">
+                  <select class="form-control" name="City" id="City">
+                    <option value="" selected>Select City</option>
+                  </select>
+              </div>
+              <div class="pwstrength_viewport_progress"></div>
+              <button type="submit" name="submit" class="btn btn-lg btn-primary btn-block">Sign Up</button>
+              <div>
+                <p> Have an account :  <a href="/login">Login Here </a> </p>
+              </div>
+            </form>
+
+          </section>
+          </div>
+      </div>
+    </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#Country').change(function(){
+      var val = $(this).val();
+
+      if(val=="Srilanka"){
+        $('#City').html("<option value='Kandy'>Kandy</option><option value='Colombo'>Colombo</option>");
+      } else if(val=="India"){
+        $('#City').html("<option value='Mumbai'>Mumbai</option><option value='Chennai'>Chennai</option>");
+      } else if(val=="UK")
+      {
+        $('#City').html("<option value='London'>London</option>");
+      }
+
+    });
+  });
+</script>
+<!-- Include Footer -->
+    <div class="footer-bar" style="margin-top:200px;">
+      <% include parts/outfooter.ejs %>
+    </div>
+
+
+  </body>
+</html>

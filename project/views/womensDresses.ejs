@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+       <meta name="description" content="">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+       <!-- Favicon  -->
+       <link rel="icon" href="/css/img/core-img/favicon.png">
+
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/css/css/core-style.css">
+    <link rel="stylesheet" href="/css/styles.css">
+      <link rel="stylesheet" href="/css/style.css">
+
+      <title> Women's Clothes | MILENZ </title>
+
+  </head>
+  <body>
+
+    <!-- ##### Header Area End ##### -->
+
+    <% include parts/header.ejs %>
+
+
+   <!-- ##### Right Side Cart Area ##### -->
+   <div class="cart-bg-overlay"></div>
+
+   <div class="right-side-cart-area">
+
+       <!-- Cart Button -->
+       <% if(typeof items.cart!=="undefined"){ %>
+       <div class="cart-button">
+           <a href="#" id="rightSideCart"><img src="/css/img/core-img/bag.svg" alt=""> <span id="InsidenoOfItems"><%= items.cart.length %></span></a>
+       </div>
+     <% } %>
+       <div class="cart-content d-flex">
+
+           <!-- Cart List Area -->
+           <div class="cart-list">
+               <!-- Single Cart Item -->
+               <div class="single-cart-item" style="height:230px;">
+                 <% if(typeof items.cart!=="undefined"){ %>
+                 <% items.cart.forEach(function(file) { %>
+                   <a href="#" id="displayImage" class="product-image">
+                     <% if(file.items){ %>
+                    <img src="/image/<%= file.items %>" class="cart-thumb" alt="">
+                     <% } else if(file.shoeitems) { %>
+                       <img src="../<%= file.shoeitems %>" class="cart-thumb" alt="">
+                     <% } %>
+                    <div class="cart-item-desc">
+
+                      <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                          <span class="badge"><%= file.brand %></span>
+                              <h6><%= file.name %></h6>
+                              <p class="color"><%= file.color %></p>
+                              <p class="color">Size: <%= file.size %></p>
+                              <p class="price">LKR. <%= file.price %></p>
+                      </div>
+                    </a>
+                 <% }); } %>
+               </div>
+
+           </div>
+
+           <!-- Cart Summary -->
+              <div class="cart-amount-summary">
+                        <div class="card-header .bg-info">
+                             <h4 class="card-title" style="font-family: Monospace;"> <i class="fa fa-shopping-bag" aria-hidden="true"></i> My Bag </h4>
+                         </div>
+                    <div class="card-body ">
+                           <% if (typeof items.cart !== "undefined") {
+                                        var amount = 0;  %>
+                                       <% items.cart.forEach(function (file) {
+                                        amount += parseInt(file.price); }); %>
+                       <ul class="summary-table" id="summary-table">
+                           <li><span>subtotal:</span> <span>LKR. <%= amount %></span></li>
+                           <li><span>delivery:</span> <span style="color:green">Free</span></li>
+                           <!-- <li><span>discount:</span> <span></span></li> -->
+                           <li><span>total:</span> <span>LKR. <%= amount %></span></li>
+                       </ul>
+                          <%  } %>
+
+                            </div>
+                            <div class="card-footer">
+                              <div id="outer">
+
+                               <div class="inner"> <a href="/products/checkout" class="btn essence-btn">check out</a> </div><br><br>
+                               <div class="inner"> <a href="/womensDresses" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></div>
+<style media="screen">
+                                          #outer
+                                          {
+                                            width:100%;
+                                            text-align: center;
+                                          }
+                                          .inner
+                                          {
+                                            display: inline-block;
+                                          }
+</style>
+                             </div>
+                            </div>
+                    </div>
+                    <!-- Card Summary End -->
+
+       </div>
+   </div>
+   <!-- ##### Right Side Cart End ##### -->
+
+   <!-- ##### Breadcumb Area Start ##### -->
+   <div class="breadcumb_area bg-img" style="background-image: url(/css/img/bg-img/breadcumb.jpg);">
+       <div class="container h-100">
+           <div class="row h-100 align-items-center">
+               <div class="col-12">
+                   <div class="page-title text-center">
+                       <h2>Women Dresses</h2>
+                       <span id="pathway">Home <%= route %></span><br>
+                       <h3 id="pathway-item" style="font-weight:bold;"></h3>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- ##### Breadcumb Area End ##### -->
+
+   <!-- ##### Shop Grid Area Start ##### -->
+       <section class="shop_grid_area section-padding-80">
+           <div class="container">
+               <div class="row">
+                   <div class="col-12 col-md-4 col-lg-3">
+                       <div class="shop_sidebar_area">
+
+                           <!-- ##### Single Widget ##### -->
+                           <div class="widget catagory mb-50">
+                               <!-- Widget Title -->
+                               <h6 class="widget-title mb-30">Catagories</h6>
+
+                               <!--  Catagories  -->
+                               <div class="catagories-menu">
+                                   <ul id="menu-content2" class="menu-content collapse show">
+                                       <!-- Single Item -->
+                                       <li data-toggle="collapse" data-target="#clothing">
+                                           <a href="#">clothing</a>
+                                           <ul class="sub-menu collapse show" id="clothing">
+                                               <li><a href="/womensDresses">All</a></li>
+                                               <li><a href="/catagory/blouse">Blouses & Tunics</a></li>
+                                               <li><a href="/catagory/coat">Coats</a></li>
+                                               <li><a href="/catagory/dress">Dresses</a></li>
+                                               <li><a href="/catagory/jacket">Jackets</a></li>
+                                               <li><a href="/catagory/jeans">Jeans</a></li>
+                                           </ul>
+                                       </li>
+                                       <!-- Single Item -->
+                                       <li data-toggle="collapse" data-target="#shoes" class="collapsed">
+                                           <a href="/shoes">shoes</a>
+                                       </li>
+                                       <!-- Single Item -->
+                                       <li data-toggle="collapse" data-target="#accessories" class="collapsed">
+                                           <a href="#">accessories</a>
+                                           <ul class="sub-menu collapse" id="accessories">
+                                               <li><a href="#">All</a></li>
+                                           </ul>
+                                       </li>
+                                   </ul>
+                               </div>
+                           </div>
+
+                           <!-- ##### Single Widget ##### -->
+                           <div class="widget price mb-50">
+                               <!-- Widget Title -->
+                               <h6 class="widget-title mb-30">Filter by</h6>
+                               <!-- Widget Title 2 -->
+                               <p class="widget-title2 mb-30">Price</p>
+
+                               <div class="widget-desc">
+                                   <div class="slider-range">
+                                       <div data-min="49" data-max="360" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="49" data-value-max="360" data-label-result="Range:">
+                                           <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
+                                           <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                                           <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                                       </div>
+                                       <div class="range-price">Range: $49.00 - $360.00</div>
+                                   </div>
+                               </div>
+                           </div>
+
+                           <!-- ##### Single Widget ##### -->
+                           <div class="widget color mb-50">
+                               <!-- Widget Title 2 -->
+                               <p class="widget-title2 mb-30">Color</p>
+                               <div class="widget-desc">
+                                   <ul class="d-flex">
+                                       <li><a href="#" class="color1"></a></li>
+                                       <li><a href="#" class="color2"></a></li>
+                                       <li><a href="#" class="color3"></a></li>
+                                       <li><a href="#" class="color4"></a></li>
+                                       <li><a href="#" class="color5"></a></li>
+                                       <li><a href="#" class="color6"></a></li>
+                                       <li><a href="#" class="color7"></a></li>
+                                       <li><a href="#" class="color8"></a></li>
+                                       <li><a href="#" class="color9"></a></li>
+                                       <li><a href="#" class="color10"></a></li>
+                                   </ul>
+                               </div>
+                           </div>
+
+                           <!-- ##### Single Widget ##### -->
+                           <div class="widget brands mb-50">
+                               <!-- Widget Title 2 -->
+                               <p class="widget-title2 mb-30">Brands</p>
+                               <div class="widget-desc">
+                                   <ul>
+                                       <li><a href="#">Asos</a></li>
+                                       <li><a href="/brand/mango">Mango</a></li>
+                                       <li><a href="/brand/coco">Cocotail</a></li>
+                                       <li><a href="#">River Island</a></li>
+                                       <li><a href="#">Topshop</a></li>
+                                       <li><a href="#">Zara</a></li>
+                                   </ul>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="col-12 col-md-8 col-lg-9">
+                       <div class="shop_grid_product_area">
+                           <div class="row">
+                               <div class="col-12">
+                                   <div class="product-topbar d-flex align-items-center justify-content-between">
+                                       <!-- Total Products -->
+                                        <div class="total-products">
+
+                                           <p id="product_count"><span><%= count %></span> products found</p>
+                                       </div>
+                                       <!-- Sorting -->
+                                       <div class="product-sorting d-flex" id="sorting_product">
+                                           <p>Sort by:</p>
+                                           <select name="select" onchange="location = this.value;">
+                                             <% if(num==1){ %>
+                                               <option value="/sort/latest" selected>Latest collection</option>
+                                               <option value="/sort/older">Older collection</option>
+                                               <option value="/sort/liked">Most Liked</option>
+                                              <% } else if(num==2) { %>
+                                                <option value="/sort/older" selected>Older collection</option>
+                                                <option value="/sort/latest">Latest collection</option>
+                                                <option value="/sort/liked">Most Liked</option>
+                                              <% } else if(num==3) { %>
+                                                <option value="/sort/liked" selected >Most Liked</option>
+                                                <option value="/sort/latest">Latest collection</option>
+                                                <option value="/sort/older">Older collection</option>
+                                              <% } else if(num ==4){ %>
+                                                <option value="" selected disabled>Sort By</option>
+                                                <option value="/sort/latest" >Latest collection</option>
+                                                <option value="/sort/older">Older collection</option>
+                                                <option value="/sort/liked">Most Liked</option>
+                                              <% }%>
+                                          </select>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+
+                    <div class="row" id="list-img"></div> <!-- Search Result Display -->
+
+                        <div class="row" id="img-list">
+
+                             <% if(files || files == null) { %>
+                                 <% files.forEach(function(file) { %>
+                                        <% if(file.isImage){ %>
+                               <!-- Single Product -->
+                               <div class="col-12 col-sm-6 col-lg-4" id="single_product">
+                                   <div class="single-product-wrapper">
+                                       <!-- Product Image -->
+                                   <div class="product-img">
+                                     <a href="/<%= file.filename %>">
+                                          <img  src="image/<%=file.filename %>" alt=""></a>
+                                           <!-- Product Badge -->
+
+                                           <!-- Check whether discount is available or not -->
+                                           <% if(file.metadata.dis > 0 ){ %>
+                                             <div class="product-badge offer-badge">
+                                                 <span><%= file.metadata.dis %> %</span>
+                                             </div>
+                                          <% } else { %>
+                                           <!-- Nothing display -->
+                                          <% } %>
+
+                                           <!-- Favourite -->
+                                           <div class="product-favourite">
+                                               <a href="/like/<%=file.filename %>" class="favme fa fa-heart"></a>
+                                           </div>
+                                       </div>
+
+                                       <!-- Product Description -->
+                                       <div class="product-description">
+                                           <span><%= file.metadata.brand %></span>
+                                           <a href="single-product-details.html">
+                                               <h6><%= file.metadata.name %></h6>
+                                           </a>
+                                           <% if(file.metadata.dis > 0) {
+                                             const discount = file.metadata.dis;
+                                             const price = file.metadata.price;
+                                             const dis_value = discount * (price /100);
+                                             const last_price = price-dis_value; %>
+                                             <p class="product-price"><span class="old-price">LKR. <%= price %></span> LKR. <%= last_price %> </p>
+                                           <% } else { %>
+                                              <p class="product-price"> LKR. <%= file.metadata.price %> </p>
+                                           <% } %>
+                                           <% if(file.metadata.Likes === 0 ) { %>
+                                             <div class="product-favourite" style="margin-left:85%;">
+                                                 <a href="/like/<%=file.filename %>" class="favme fa fa-heart " style="font-size: 20px;" data-toggle="tooltip" title=" Likes <%=file.metadata.Likes %>">  <%=file.metadata.Likes %> </a>
+                                             </div>
+
+                                           <% } else { %>
+                                        <div class="product-favourite" style="margin-left:65%;">
+                                            <a href="/like/<%=file.filename %>" class="favme fa fa-heart active" style="font-size: 20px;" data-toggle="tooltip" title="Likes <%=file.metadata.Likes %>">  <%=file.metadata.Likes %> </a>
+                                        </div>
+                                            <% } %>
+                                           <!-- Hover Content -->
+                                           <div class="hover-content">
+                                               <!-- Add to Cart
+                                               <div class="add-to-cart-btn">
+                                                <button type="button" class="btn essence-btn js-btn-add-to-cart">Add to Cart</button>
+                                              </div> -->
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <% } else { %>
+                                       <p>ERROR</p>
+                               <% } }) } else {%>
+                                 <p>No files</p>
+                               <% } %>
+
+                           </div>
+                         </div>
+                      </div>
+                  </div>
+<hr>
+
+
+            <!--- ################################# Recently Viewed #######################################  -->
+                  <br><br><br><br>
+
+                  <% if(typeof isConfirm!=="undefined"){
+                     if(isConfirm==0){ %>
+
+                   <div id="owl-demo"></div>
+                 <% } else if(isConfirm==1){ %>
+                   <h3 style="text-align:center;"><span style="color:#2E4DB5; font-style:'tahoma';">RECENTLY VIEWED</span> <span style="font-family:arial; font-weight: 400;
+                     src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');">ITEMS</span></h3>
+                  <div id="owl-demo">
+
+                    <% if(typeof items.recentView !=="undefined"){
+                        items.recentView.forEach(function(files){ %>
+                    <div class="item">
+                        <% if(files.filename){ %>
+                          <a href="/<%=files.filename %>"><img src="image/<%= files.filename %>" alt=""></a>
+                        <% } else if(files.imagename){ %>
+                         <a href="../<%=files.imagename %>"><img src="../<%= files.imagename %>" alt=""></a>
+                        <% } %>
+
+                         <div style="text-align:center;">
+                               <span><%= files.brand %></span><br>
+                               <a href="single-product-details.html">
+                                   <h7><%= files.nam %></h7>
+                               </a>
+                               <div class="product-close" style="margin-left:85%; margin-bottom: -10%; opacity:0.5;">
+                              <% if(files.filename){ %>
+                                   <a href="/delete/<%= files.filename %>" class="favme fa fa-times " style="font-size: 20px;" data-toggle="tooltip" title="Remove"> </a>
+                                <% } else if(files.imagename){ %>
+                                  <a href="/deleteShoe/<%= files.refID %>" class="favme fa fa-times " style="font-size: 20px;" data-toggle="tooltip" title="Remove"> </a>
+                                <% } %>
+                               </div>
+
+                                   <p class="product-price">LKR. <%= files.price %></p>
+                              </div>
+                        </div>
+                          <% }) } else { %>
+                            <p>No items found</p>
+                          <% } %>
+                     </div>
+                    <% } } %>
+                                               <!-- CSS -->
+                                             <style media="screen">
+                                               #owl-demo .item{
+                                                    margin: 3px;
+                                                    margin-left: 4px;
+                                               }
+                                                  #owl-demo .item img{
+                                                  display: block;
+                                                  width: 100%;
+                                                  height: auto;
+                                                }
+                                           </style>
+                                       <!-- End -->
+
+                       <!-- Pagination -->
+                       <nav aria-label="navigation">
+                            <ul class="pagination mt-50 mb-70">
+                       <li class="page-item"><a class="page-link" id="prev">Prev</a>
+                       <li class="page-item"><a class="page-link" id="next">Next</a>
+
+                     </ul>
+                   </nav>
+                   </div>
+
+
+
+       </section>
+       <!-- ##### Shop Grid Area End ##### -->
+
+       <% include parts/footer.ejs %>
+
+       <script>
+       $(document).ready(function(){
+         $('[data-toggle="tooltip"]').tooltip();
+       });
+       </script>
+
+  <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="/css/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/css/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/css/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/css/js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="/css/js/classy-nav.min.js"></script>
+    <!-- Active js -->
+
+    <script src="/css/js/active.js"></script>
+
+    <!-- Custom Slider JS -->
+    <script type="text/javascript" src="css/slider.js"></script>
+
+
+
+
+<!-- Pagination -->
+<script type="text/javascript">
+
+var start = 0; // Start Value
+var nb = 9; // End Value
+var end = start + nb;
+var length = $('#img-list img').length;
+var list = $(' #img-list .single-product-wrapper');
+list.hide().filter(':lt('+(end)+')').show();
+
+$(' #prev, #next').click(function(e){
+ e.preventDefault();
+
+ if( $(this).hasClass('prev') ){
+     start -= nb;
+
+ } else {
+     start += nb;
+
+ }
+
+ if( start < 0 || start >= length ) start = 0;
+ end = start + nb;
+
+ if( start == 0 )
+ {
+   list.hide().filter(':lt('+(end)+')').show();
+
+ }
+ else{
+   list.hide().filter(':lt('+(end)+'):gt('+(start-1)+')').show();
+
+  }
+});
+</script>
+
+  </body>
+</html>

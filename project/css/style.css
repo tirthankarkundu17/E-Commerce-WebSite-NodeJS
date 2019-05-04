@@ -1,0 +1,79 @@
+#intro{
+  font-family: tahoma;
+  font-size: 150px;
+  color: red;
+}
+
+/* Flash Box */
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.isa_info, .isa_success, .isa_warning, .isa_error {
+margin: 10px 0px;
+padding:3px;
+border-radius:.5em;
+box-shadow:1px 1px 3px #888;
+
+
+}
+.isa_info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.isa_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.isa_warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+
+}
+.isa_info i, .isa_success i, .isa_warning i, .isa_error i {
+    margin:10px 22px;
+    font-size:2em;
+    vertical-align:middle;
+}
+
+/*  End */
+
+
+/* Related Products */
+#owl-demo .item{
+margin: 3px;
+}
+#owl-demo .item img{
+display: block;
+width: 100%;
+height: auto;
+}
+
+#owl-demo .item:hover{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/* transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/* Hover - SHadow Effect */
+div#single_product:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+/*  Img Gray Effect */
+div#single_product img{
+     filter: none;
+       -webkit-filter: grayscale(0);
+
+
+}
+
+/*  Img Gray Effect: Hover */
+ div#single_product img:hover {
+   filter: gray; /* IE5+ */
+  -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+  -webkit-transition: all .8s ease-in-out;
+
+   }

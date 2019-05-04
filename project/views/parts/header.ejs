@@ -1,0 +1,465 @@
+
+<script src="../css/js/jquery/jquery-2.2.4.min.js"></script>
+
+    <header class="header_area">
+
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+
+            <!-- Classy Menu -->
+            <nav class="classy-navbar" id="essenceNav">
+                <!-- Logo -->
+                <a class="nav-brand" href="/home"><img id="logoWeather" src="/css/img/core-img/Milenz2.png" alt="" data-toggle="tooltip" title="MILENZ, back to Home Page"></a>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="#">Shop</a>
+                                <div class="megamenu">
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title"><a href="/womensDresses">Women's Collection</a></li>
+                                        <li><a href="/catagory/blouse">Blouses & Tunics</a></li>
+                                        <li><a href="/catagory/coat">Coats</a></li>
+                                        <li><a href="/catagory/dress">Dresses</a></li>
+                                        <li><a href="/catagory/jacket">Jackets</a></li>
+                                        <li><a href="/catagory/jeans">Jeans</a></li>
+                                      </ul>
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">Men's Collection</li>
+                                        <li><a href="shop.html">T-Shirts</a></li>
+                                        <li><a href="shop.html">Polo</a></li>
+                                        <li><a href="shop.html">Shirts</a></li>
+                                        <li><a href="shop.html">Jackets</a></li>
+                                        <li><a href="shop.html">Trench</a></li>
+                                    </ul>
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">Kid's Collection</li>
+                                        <li><a href="shop.html">Dresses</a></li>
+                                        <li><a href="shop.html">Shirts</a></li>
+                                        <li><a href="shop.html">T-shirts</a></li>
+                                        <li><a href="shop.html">Jackets</a></li>
+                                        <li><a href="shop.html">Trench</a></li>
+                                    </ul>
+                                    <div class="single-mega cn-col-4">
+                                        <img src="/css/img/bg-img/bg-6.jpg" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+
+                            <% favor.forEach(function(items){
+                               if(items.userid==id){
+                                 if(items.attempt >=5) {
+                                    if(items.brand=="Mango"){ %>
+                                      <p id="user" style="display:none"><%= items.userid %></p>
+                                  <li style="background-color:#D95858;"  onmouseover="show()" onmouseout="hide()">
+                                 <a href="" class="favme fa fa-times removeNav" onclick="removeNav('Mango')" style="font-size: 20px; margin-left:35px; display:none;" ></a>
+                                    <a href="/brand/mango" style="color: white;" class="brandName">Mango</a></li>
+                                    <% } else if(items.brand=="Cocotail")
+                                    { %>
+                                      <p id="user" style="display:none"><%= items.userid %></p>
+                                  <li style="background-color: #3E94C2;" onmouseover="show2()" onmouseout="hide2()">
+                                    <a href="" class="favme fa fa-times removeNav2" onclick="removeNav('Cocotail')" style="font-size: 20px; margin-left:35px; display:none;" ></a>
+                                    <a href="/brand/coco" style="color: white;" class="brandName">Cocotail</a></li>
+                                   <% }
+                                 }
+                               }
+                              }); %>
+
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+
+<!-- Favorite Brand : NAvigation Bar-->
+<script type="text/javascript">
+  function show(){
+      var nav = document.querySelector('.removeNav');
+      nav.style.display = "block";
+  }
+
+  function show2(){
+    var nav = document.querySelector('.removeNav2');
+    nav.style.display = "block";
+
+  }
+
+  function hide2(){
+    var nav = document.querySelector('.removeNav2');
+    nav.style.display = "none";
+  }
+
+  function hide(){
+    var nav = document.querySelector('.removeNav');
+    nav.style.display = "none";
+  }
+
+  function removeNav(name){
+
+    var item = name;
+    var user = $('#user').text();
+   $.ajax({
+     method:'POST',
+     url:'/nav/remove',
+     cache:false,
+     data:{
+       brandItem : item,
+       user: user
+     },
+     success:function(){
+
+     },
+     error:function()
+     {
+
+     }
+   });
+  }
+
+</script>
+
+
+            <!-- Header Meta Data -->
+            <div class="header-meta d-flex clearfix justify-content-end">
+              <!-- Material checked -->
+              <% if(typeof isSearch !== "undefined") { %>
+              <% if(isSearch==1){ %>
+                <!-- Search Area -->
+                <div class="search-area">
+                    <form action="#" method="post">
+                        <input type="search" id="womenItem" placeholder="Search for items, brands">
+                        <button type="button" onclick="womenSearch()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <!-- Rounded switch -->
+                    </form>
+                </div>
+            <%  } else if(isSearch==0){ %>
+                <!-- Search Area -->
+                <div class="search-area">
+
+                </div>
+           <%  } else if(isSearch==2) { %>
+             <!-- Search Area -->
+             <div class="search-area">
+                 <form action="#" method="post">
+                     <input type="search" id="womenShoe" placeholder="Search for items, brands">
+                     <button type="button" onclick="womenShoeSearch()"><i class="fa fa-search" aria-hidden="true"></i></button>
+                     <!-- Rounded switch -->
+                 </form>
+             </div>
+           <% }
+         } %>
+
+  <script type="text/javascript">
+// Womensearch function
+  function womenSearch(){
+                  $(document).ready(function(){
+                    const search_item = $('#womenItem').val();
+            if(search_item != ""){ // If user type
+                    $('#list-img').html('');
+                    $.ajax({
+                      method:'POST',
+                      url:'/womensearch',
+                      cache:false,
+                      data:{
+                        womenitem:search_item
+                      },
+                      success:function(data){
+                        $.each(data, function(index, element) {
+                        $('#img-list').hide();
+
+  var img = `<div class="col-12 col-sm-6 col-lg-4" id="single_product">
+                 <div class="single-product-wrapper">
+                     <div class="product-img">
+                         <a class="route" href="/${element.filename}">
+                            <img class="serachImg" src="/image/${element.filename}" alt="">
+                            <div class="product-favourite">
+                                <a href="/like/${element.filename}" class="favme fa fa-heart"></a>
+                            </div>
+                      </div>
+
+                      <div class="product-description">
+                          <span>${element.metadata.brand}</span>
+                          <a href="single-product-details.html">
+                              <h6>${element.metadata.name}</h6>
+                          </a>
+                          <p class="product-price"> LKR. ${element.metadata.price}  </p>
+
+                        </div>
+
+                  </div>
+              </div>`
+
+                       $('#list-img').append(img); // Display Result
+                       $('#pathway').text(" Your search result for: "); // Information to Header
+                       $('#pathway-item').text(search_item); // Search Item
+                       $('#product_count').hide(); // Hide product count
+                       });
+                      },
+                      error:function(){
+
+                      }
+                    });
+
+                  } else { // If Voice Record
+
+          if (window.hasOwnProperty('webkitSpeechRecognition')) {
+          var recognition = new webkitSpeechRecognition();
+
+
+          recognition.continuous = false;
+          recognition.interimResults = false;
+
+          recognition.lang = "en-US";
+          recognition.start();
+
+          recognition.onstart = function() {
+                 $('#womenItem').val(" Listening... ");
+          };
+          recognition.onresult = function(e) {
+            var voice = e.results[0][0].transcript; //Voice
+           const nameCapitalized = voice.charAt(0).toUpperCase() + voice.slice(1)
+            $('#list-img').html('');
+            $.ajax({
+              method:'POST',
+              url:'/womensearch',
+              cache:false,
+              data:{
+                womenitem:nameCapitalized
+              },
+              success:function(data){
+                $.each(data, function(index, element) {
+                $('#img-list').hide();
+
+                var img = `<div class="col-12 col-sm-6 col-lg-4" id="single_product">
+                               <div class="single-product-wrapper">
+                                   <div class="product-img">
+                                       <a class="route" href="/${element.filename}">
+                                          <img class="serachImg" src="/image/${element.filename}" alt="">
+                                          <div class="product-favourite">
+                                              <a href="/like/${element.filename}" class="favme fa fa-heart"></a>
+                                          </div>
+                                    </div>
+
+                                    <div class="product-description">
+                                        <span>${element.metadata.brand}</span>
+                                        <a href="single-product-details.html">
+                                            <h6>${element.metadata.name}</h6>
+                                        </a>
+                                        <p class="product-price"> LKR. ${element.metadata.price}  </p>
+                                      </div>
+
+                                </div>
+                            </div>`
+
+
+
+               $('#list-img').append(img); // Display Result
+               $('#pathway').text(" Your search result for: "); // Information to Header
+               $('#pathway-item').text(nameCapitalized); // Search Item
+               $('#product_count').hide(); // Hide product count
+               });
+              },
+              error:function(){
+
+              }
+            });
+
+            recognition.stop();
+
+          };
+          recognition.onerror = function(e) {
+            $('#womenItem').val(" Try again later ");
+            recognition.stop();
+          }
+
+        }
+
+
+
+      } // End voice record
+
+    });
+  }
+
+// womenShoeSearch
+function womenShoeSearch(){
+  $(document).ready(function(){
+    const search_item = $('#womenShoe').val();
+if(search_item != ""){ // If user type
+    $('#list-img').html('');
+    $.ajax({
+      method:'POST',
+      url:'/womenShoesearch',
+      cache:false,
+      data:{
+        womenitem:search_item
+      },
+      success:function(data){
+        $.each(data, function(index, element) {
+        $('#img-list').hide();
+
+var img = `<div class="col-12 col-sm-6 col-lg-4" id="single_product">
+ <div class="single-product-wrapper">
+     <div class="product-img">
+         <a class="route" href="/shoes/${element.refID}">
+            <img class="serachImg" src="../${element.image}" alt="">
+            <div class="product-favourite">
+                <a href="" class="favme fa fa-heart"></a>
+            </div>
+      </div>
+
+      <div class="product-description">
+          <span>${element.brand}</span>
+          <a href="single-product-details.html">
+              <h6>${element.name}</h6>
+          </a>
+          <p class="product-price"> LKR. ${element.price}  </p>
+
+        </div>
+
+  </div>
+</div>`
+
+       $('#list-img').append(img); // Display Result
+       $('#pathway').text(" Your search result for: "); // Information to Header
+       $('#pathway-item').text(search_item); // Search Item
+       $('#product_count').hide(); // Hide product count
+       });
+      },
+      error:function(){
+
+      }
+    });
+
+  } else { // If Voice Record
+
+if (window.hasOwnProperty('webkitSpeechRecognition')) {
+var recognition = new webkitSpeechRecognition();
+
+
+recognition.continuous = false;
+recognition.interimResults = false;
+
+recognition.lang = "en-US";
+recognition.start();
+
+recognition.onstart = function() {
+ $('#womenShoe').val(" Listening... ");
+};
+recognition.onresult = function(e) {
+var voice = e.results[0][0].transcript; //Voice
+const nameCapitalized = voice.charAt(0).toUpperCase() + voice.slice(1)
+$('#list-img').html('');
+$.ajax({
+method:'POST',
+url:'/womenShoesearch',
+cache:false,
+data:{
+womenitem:nameCapitalized
+},
+success:function(data){
+$.each(data, function(index, element) {
+$('#img-list').hide();
+
+var img = `<div class="col-12 col-sm-6 col-lg-4" id="single_product">
+               <div class="single-product-wrapper">
+                   <div class="product-img">
+                       <a class="route" href="../${element.image}">
+                          <img class="serachImg" src="../${element.image}" alt="">
+                          <div class="product-favourite">
+                              <a href="" class="favme fa fa-heart"></a>
+                          </div>
+                    </div>
+
+                    <div class="product-description">
+                        <span>${element.brand}</span>
+                        <a href="single-product-details.html">
+                            <h6>${element.name}</h6>
+                        </a>
+                        <p class="product-price"> LKR. ${element.price}  </p>
+                      </div>
+
+                </div>
+            </div>`
+
+
+
+$('#list-img').append(img); // Display Result
+$('#pathway').text(" Your search result for: "); // Information to Header
+$('#pathway-item').text(nameCapitalized); // Search Item
+$('#product_count').hide(); // Hide product count
+});
+},
+error:function(){
+
+}
+});
+
+recognition.stop();
+
+};
+recognition.onerror = function(e) {
+$('#womenShoe').val(" Try again later ");
+recognition.stop();
+}
+
+}
+
+
+
+} // End voice record
+
+});
+
+}
+
+  </script>
+
+                <!-- Favourite Area -->
+                <div class="favourite-area">
+                  <% if(country=="India"){ %>
+                    <a href="#"><img src="/css/img/core-img/india.png" alt="" data-toggle="tooltip" title="India"></a>
+                  <% } else if(country=="Srilanka") { %>
+                     <a href="#"><img src="/css/img/core-img/sl.png" alt="" data-toggle="tooltip" title="Srilanka"></a>
+                  <% } %>
+                </div>
+                <div class="favourite-area">
+                    <a href="/logout">Log out</a>
+                </div>
+                <!-- User Login Info -->
+              <div class="dropdown dropdown-toplinks">
+                <div class="user-login-info dropdown-toggle"  data-toggle="dropdown">
+                  <a href=""> <p style="margin-top:6%;"><img src="/css/img/core-img/user.svg" alt=""><br><%= name %></p></a>
+<div class="dropdown-menu">
+                    <ul>
+                      <li>
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/guest-male.png"><a href="">Account</a>
+                      </li>
+                    <li>
+                        <a href="/logout">Log out</a>
+                    </li>
+
+                    <ul>
+</div>
+                </div>
+                </div>
+
+                <!-- Cart Area -->
+<% if(typeof items.cart!=="undefined"){ %>
+  <div class="cart-area">
+      <a href="#" id="essenceCartBtn"><img src="/css/img/core-img/bag.svg" alt=""> <span id="noOfItems"><%= items.cart.length %></span></a>
+  </div>
+<% } %>
+            </div>
+
+        </div>
+    </header>

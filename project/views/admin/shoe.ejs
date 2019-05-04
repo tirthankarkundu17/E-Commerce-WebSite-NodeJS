@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Women Dress</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="/css/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="/css/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="/css/assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MILENZ</a>
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				  <li class="text-center">
+                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+
+
+                              <li>
+                                  <a  href="/admin/home"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                              </li>
+                               <li>
+                                  <a href="/admin/Wdress"><i class="fa fa-female fa-3x"></i> Women - Dress <span class="fa arrow"></span></a>
+                              </li>
+
+                              <!-- Men -->
+                              <li>
+                                 <a href="/admin/shoe" class="active-menu"><i class="fa fa-male fa-3x"></i> Women - Shoe <span class="fa arrow"></span></a>
+
+                             </li>
+
+                             <!-- Child -->
+                             <li>
+                                <a href="#"><i class="fa fa-smile-o fa-3x"></i> Kids <span class="fa arrow"></span></a>
+
+                            </li>
+          </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Women - Shoe Collection</h2>
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+
+          <!-- Start -->
+          <div class="row">
+           <div class="col-md-12">
+             <!-- Messages Display -->
+             <div>
+               <% if (success_msg.length>0) { %>
+                   <p class="alert alert-success"> <%= success_msg  %></p>
+               <% }
+           else if (error_msg.length>0) { %>
+                 <p class="alert alert-danger"><%= error_msg  %></p>
+               <%  }
+               else if (error.length>0) { %>
+                 <p class="alert alert-danger"><%= error  %></p>
+               <% } %>
+             </div>
+            <!-- Form Elements -->
+            <div class="panel panel-default">
+
+                      <div class="panel-heading">
+                         Registration Shoe Collection
+                       </div>
+                          <div class="panel-body">
+                  <form  action="/admin/add_shoe" method="post" role="form" enctype="multipart/form-data">
+
+
+                      <div class="form-group">
+                          <label>Brand</label>
+                            <select class="form-control" name="shoe_brand">
+                               <option value="adidas">adidas</option>
+                               <option value="ascis">ascis</option>
+                               <option value="converse">converse</option>
+                               <option value="nike">nike</option>
+                               <option value="vans">vans</option>
+                            </select>
+                       </div>
+
+                       <div class="form-group">
+                          <label>Type</label>
+                           <select class="form-control" name="shoe_type">
+                             <option value="Boots">Boots</option>
+                             <option value="Running">Running Shoe</option>
+                             <option value="Trainers">Trainers</option>
+                             <option value="Tennis">Tennis Shoe</option>
+                             <option value="Flip">Filp-flops</option>
+                             <option value="Ankle">Ankle boots</option>
+                             <option value="Hiking">Hiking & Trekking</option>
+                             <option value="Snow">Snow boots</option>
+                             <option value="Loafers">Loafers</option>
+                             <option value="Platforms">Platforms</option>
+                           </select>
+                       </div>
+                       <div class="form-group">
+                           <label>Name of Shoe</label>
+                           <input class="form-control" placeholder="Name of Shoe" name="shoe_name" />
+                       </div>
+                       <div class="form-group">
+                          <label>Color</label>
+                           <select class="form-control" name="shoe_color">
+                             <option value="Black">Black</option>
+                             <option value="White">White</option>
+                             <option value="Blue">Blue</option>
+                             <option value="Brown">Brown</option>
+                             <option value="Red">Red</option>
+                             <option value="Grey">Grey</option>
+                             <option value="Green">Green</option>
+                             <option value="Yellow">Yellow</option>
+                           </select>
+                       </div>
+                       <div class="form-group">
+                           <label>Price</label>
+                           <input class="form-control" placeholder="Price" name="shoe_price" />
+                       </div>
+                       <div class="form-group">
+                           <label>Additional Info</label>
+                           <input class="form-control" placeholder="Info" name="shoe_info"/>
+                       </div>
+                       <div class="form-group">
+                           <label>Discount</label>
+                           <input class="form-control" placeholder="Discount" name="shoe_discount"/>
+                       </div>
+
+                       <div class="form-group">
+                            <label>Image </label>
+                            <input type="file" name="shoe_pic"/>
+                        </div>
+                        <div class="form-group">
+                          <input type="submit" name="button" value="Submit" class="btn btn-primary">
+                        </div>
+
+                    </form>
+
+
+                  </div>
+                </div>
+
+
+                <section id="upload">
+                  <% if(typeof path !== "undefined"){ %>
+                    <img class="uploaded-image" src="../../<%= path %>" alt="Image name: <%= path %>" style="width:50px; height:50px;"/>
+                    <% } %>
+                  </section>
+
+
+            </div>
+           </div>
+         <!-- End -->
+
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery-1.10.2.js"></script>
+
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+
+
+
+</body>
+</html>
